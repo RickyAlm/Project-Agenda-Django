@@ -1,13 +1,16 @@
 :root {
   --link-dark-color: rgb(0, 83, 134);
+  --link-light-color: rgb(156, 217, 255);
   --clr-black: rgb(0, 0, 30);
   --clr-light-gray: rgb(230, 230, 245);
   --clr-white: rgb(245, 245, 255);
   --clr-dark-shadow-5: rgba(0, 0, 10, 5%);
   --clr-dark-shadow-10: rgba(0, 0, 10, 10%);
   --clr-dark-shadow-20: rgba(0, 0, 10, 20%);
+  --clr-light-shadow-10: rgba(200, 200, 255, 10%);
   --small-font-size: 1.6rem;
   --medium-font-size: 2.4rem;
+  --biggest-font-size: 5rem;
   --table-min-width: 60rem;
   --main-page-width: 120rem;
   --spacing: 1.5rem;
@@ -35,6 +38,71 @@ body {
   color: var(--clr-black);
   -webkit-font-smoothing: antialiased;
   background: var(--clr-light-gray);
+}
+
+.header {
+  background: var(--clr-black);
+  padding: var(--spacing);
+  box-shadow: 0 5px 10px 2px var(--clr-dark-shadow-20);
+  z-index: 1;
+  position: relative;
+}
+
+.header-heading {
+  font-size: var(--biggest-font-size);
+  text-align: center;
+}
+
+.header-link {
+  color: var(--link-light-color);
+  text-decoration: none;
+  transition: filter var(--transition-fast) ease-in-out;
+}
+
+.header-link:hover {
+  filter: brightness(70%);
+}
+
+.menu {
+  margin: var(--spacing);
+}
+
+.menu-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+.menu-link {
+  display: block;
+  padding: var(--spacing);
+  color: var(--link-light-color);
+  text-decoration: none;
+  transition: background-color var(--transition-fast) ease-in-out;
+  border-radius: var(--default-border-radius);
+}
+
+.menu-link:hover {
+  background: var(--clr-light-shadow-10);
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+}
+
+.search-input {
+  font-size: var(--medium-font-size);
+  padding: 1rem 2rem;
+  width: 100%;
+  max-width: 32rem;
+  border-radius: var(--default-border-radius);
+  border: 1px solid var(--link-light-color);
+}
+
+.search-input:focus {
+  box-shadow: 0 0 15px var(--link-light-color);
 }
 
 .content {
@@ -97,3 +165,30 @@ body {
   color: var(--clr-black);
 }
 
+.single-contact p {
+  margin: 1rem 0;
+}
+
+.single-contact-name h1 {
+  margin: 1rem 0;
+}
+
+.pagination {
+  margin-top: var(--spacing);
+  display: flex;
+  justify-content: center;
+  padding: calc(var(--spacing) * 0.8);
+  font-size: var(--small-font-size);
+}
+
+.pagination .step-links {
+  display: flex;
+  gap: calc(var(--spacing) * 0.8);
+}
+
+.pagination .step-links a {
+  color: var(--link-dark-color);
+  transition: color var(--transition-fast) ease-in-out;
+  text-decoration: none;
+  display: block;
+}
