@@ -42,6 +42,11 @@ body {
   background: var(--clr-light-gray);
 }
 
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
 
 /* HEADER */
 .header {
@@ -181,6 +186,12 @@ body {
   margin: 1rem 0;
 }
 
+@media (min-width: 600px) {
+  .single-contact {
+    max-width: 80%;
+    margin: calc(var(--spacing) * 2) auto;
+  }
+}
 
 /* PAGINATION */
 .pagination {
@@ -285,6 +296,10 @@ body {
   padding: 1rem;
   display: block;
   line-height: var(--small-font-size);
+}
+
+.btn-delete {
+  background: tomato;
 }
 
 /* FORM MESSAGES AND ERRORS */
