@@ -8,8 +8,25 @@ from contact.models import Contact
 
 
 class ContactForm(forms.ModelForm):
+    phone = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                'placeholder': '(00) 00000-0000'
+            }
+        )
+    )
+
+    email = forms.EmailField(
+        widget=forms.TextInput(
+            attrs={
+                'placeholder': 'exemple@exemple.com'
+            }
+        )
+    )
+
     picture = forms.ImageField(
-        widget=forms.FileInput(attrs={'accept': 'image/*', })
+        help_text='Optional', widget=forms.FileInput(
+            attrs={'accept': 'image/*', }), required=False
     )
 
     class Meta:
@@ -23,13 +40,18 @@ class ContactForm(forms.ModelForm):
 class RegisterForm(UserCreationForm):
     first_name = forms.CharField(
         required=True,
-        min_length=3,
+        min_length=2,
     )
+
     last_name = forms.CharField(
         required=True,
-        min_length=3,
+        min_length=2,
     )
-    email = forms.EmailField()
+
+    email = forms.EmailField(
+        required=True, widget=forms.TextInput(
+            attrs={'placeholder': 'exemple@exemple.com'})
+    )
 
     class Meta:
         model = User
@@ -54,16 +76,20 @@ class RegisterUpdateForm(forms.ModelForm):
         min_length=2,
         max_length=30,
         required=True,
-        help_text='Required.',
         error_messages={
             'min_length': 'Please, add more than 2 letters.'
         }
     )
+
     last_name = forms.CharField(
         min_length=2,
         max_length=30,
         required=True,
-        help_text='Required.'
+    )
+
+    email = forms.EmailField(
+        required=True, widget=forms.TextInput(
+            attrs={'placeholder': 'exemple@exemple.com'})
     )
 
     password1 = forms.CharField(
@@ -75,7 +101,7 @@ class RegisterUpdateForm(forms.ModelForm):
     )
 
     password2 = forms.CharField(
-        label="Password 2",
+        label="Confirm password",
         strip=False,
         widget=forms.PasswordInput(attrs={"autocomplete": "new-password"}),
         help_text='Use the same password as before.',

@@ -45,7 +45,7 @@ body {
 img,
 svg {
   display: block;
-  max-width: 100%;
+  max-width: 60%;
 }
 
 /* HEADER */
@@ -105,7 +105,7 @@ svg {
   font-size: var(--medium-font-size);
   padding: 1rem 2rem;
   width: 100%;
-  max-width: 32rem;
+  max-width: 33rem;
   border-radius: var(--default-border-radius);
   border: 1px solid var(--link-light-color);
 }
