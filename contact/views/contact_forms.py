@@ -46,12 +46,12 @@ def update(request,  contact_id) -> HttpResponse:
 
             return redirect('contact:update', contact_id=contact.pk)
 
-        return render(request, 'contact/create.html', context)
+        return render(request, 'contact/update.html', context)
 
     context = {
         'form': ContactForm(instance=contact), 'form_action': form_action,
     }
-    return render(request, 'contact/create.html', context)
+    return render(request, 'contact/update.html', context)
 
 
 @login_required(login_url='contact:login')
