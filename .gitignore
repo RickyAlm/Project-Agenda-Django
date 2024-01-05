@@ -3,11 +3,8 @@
 *.pot
 *.pyc
 __pycache__
-db.sqlite3
 .vscode
 static/
-media/
-project/local_settings.py
 
 # Backup files # 
 *.bak 
